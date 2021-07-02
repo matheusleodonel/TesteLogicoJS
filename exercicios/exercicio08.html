@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 08</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 08">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function removerAninhamentos(){
+            /* Obter valores digitados com o método 'Array.from' */
+            array = Array.from(document.getElementById('entrada').value);
+
+            console.log(array)
+
+            for(var i = 0; i < array.length; i++){
+                /* Se algum elemento do array for igual à "[", "," ou "]", será retirado do array, sobrando apenas os elementos válidos */
+                if((array[i] == "[") || (array[i] == ",") || (array[i] == "]") || (array[i] == " ")){
+                    /* O método 'splice' é responsável por retirar um item do array, 
+                        de acordo com o seu index ('i') e quantidade de remoções */
+                    array.splice(i, 1);
+                    i--; /* Sempre que um elemento do array for retirado, o for deve voltar uma casa para poder analisar todos os elementos. */
+                }
+            }
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden');
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(array);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 08</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que remova os aninhamentos de um array de arrays para um array unico.</p>
+        <p>Entrada do método ([1, 2, [3], [4, 5]]), Resultado do método: [1, 2, 3, 4, 5]</p>
+
+        <input class="inputStyle" type="text" id="entrada" name="entrada" value="[1, 2, [3], [4, 5]]" placeholder="Digite o array">
+        <button class="buttonExercises" onclick="removerAninhamentos()">Remover aninhamentos</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function removerAninhamentos(){
+                    array = Array.from(document.getElementById('entrada').value);
+        
+                    console.log(array)
+        
+                    for(var i = 0; i < array.length; i++){
+                        /* Se algum elemento do array for igual à "[", "," ou "]", será retirado do array, sobrando apenas os elementos válidos */
+                        if((array[i] == "[") || (array[i] == ",") || (array[i] == "]") || (array[i] == " ")){
+                            /* O método 'splice' é responsável por retirar um item do array, 
+                                de acordo com o seu index ('i') e quantidade de remoções */
+                            array.splice(i, 1);
+                            i--; /* Sempre que um elemento do array for retirado, o for deve voltar uma casa para poder analisar todos os elementos. */
+                        }
+                    }
+
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(array);
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

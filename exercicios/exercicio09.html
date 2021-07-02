@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 09</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 09">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues(){
+            var array = document.getElementById('entrada1').value;
+            var qtdDivisoes = document.getElementById('entrada2').value;
+          
+            /* A função 'split' separa os elementos de entrada utilizando 
+            como parâmetro separador a vírgula (","); */
+            array = array.split(",");
+
+            dividirArray(array, qtdDivisoes);
+        }
+
+        function dividirArray(array, qtdDivisoes){
+            novoArray = []; /* Array que receberá os sub-arrays divididos */
+            j = 0; /* Variável auxiliar que servirá como índice do novo array */
+
+            /* O laço de repetição vai percorrer todo o array e realocar seus elementos
+            de acordo com a quantidade de divisões */
+            for(var i = 0; i < array.length; i++){
+                if(novoArray[j] === undefined){ /* Se aquela casa do array estiver vazia, ela deve ser inicializada */
+                    novoArray[j] = [];
+                }
+
+                /* Adicionando o elemento no novo array */
+                novoArray[j].push(array[i]); 
+
+                /* Se verdadeiro, significa que um grupo já está cheio e o novo array pode ir para o próximo */
+                if((i + 1) % qtdDivisoes == 0){
+                    j++;
+                }
+            }
+
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden');
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(novoArray);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 09</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que divida um array por uma quantidade passada por parâmetro.</p>
+        <p>Entrada do método ([1, 2, 3, 4, 5], 2), Resultado do método: [[1, 2], [3, 4], [5]]</p>
+
+        <input class="inputStyle" type="text" id="entrada1" name="entrada1" value="1, 2, 3, 4, 5" placeholder="Digite o array">
+        <input class="inputStyle" type="text" id="entrada2" name="entrada2" value="2" placeholder="Digite a quantidade de divisões">
+        <button class="buttonExercises" onclick="getValues()">Dividir Array</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues(){
+                    var array = document.getElementById('entrada1').value;
+                    var qtdDivisoes = document.getElementById('entrada2').value;
+                  
+                    /* A função 'split' separa os elementos de entrada utilizando 
+                    como parâmetro separador a vírgula (","); */
+                    array = array.split(",");
+        
+                    dividirArray(array, qtdDivisoes);
+                }
+        
+                function dividirArray(array, qtdDivisoes){
+                    novoArray = []; /* Array que receberá os sub-arrays divididos */
+                    j = 0; /* Variável auxiliar que servirá como índice do novo array */
+        
+                    /* O laço de repetição vai percorrer todo o array e realocar seus elementos
+                    de acordo com a quantidade de divisões */
+                    for(var i = 0; i < array.length; i++){
+                        if(novoArray[j] === undefined){ /* Se aquela casa do array estiver vazia, ela deve ser inicializada */
+                            novoArray[j] = [];
+                        }
+        
+                        /* Adicionando o elemento no novo array */
+                        novoArray[j].push(array[i]); 
+        
+                        /* Se verdadeiro, significa que um grupo já está cheio e o novo array pode ir para o próximo */
+                        if((i + 1) % qtdDivisoes == 0){
+                            j++;
+                        }
+                    }
+ 
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(novoArray);
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

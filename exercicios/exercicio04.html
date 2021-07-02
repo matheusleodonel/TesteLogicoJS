@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 04</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 04">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function converterParaObjeto(){
+            var array = [["c", 2], ["d", 4]]; /* Array teste */
+        
+            /* O método 'Object.fromEntries' é responsável por fazer a conversão conforme solicitado no exercício */
+            var obj = Object.fromEntries(array)
+            
+            console.log(obj) /* Caso queira verificar a exibição do objeto no console, de acordo como o exercício pediu. */
+            
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden')
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(obj);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 04</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que a partir de um array de arrays, converta em um
+            objeto com chave e valor.</p>
+        <p>Entrada do método ([["c",2],["d",4]]), Resultado do método: {c:2, d:4}</p>
+
+        <button class="buttonExercises" onclick="converterParaObjeto()">Executar método</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function converterParaObjeto(){
+                    var array = [["c", 2], ["d", 4]]; /* Array teste */
+                
+                    /* O método 'Object.fromEntries' é responsável por fazer a conversão conforme solicitado no exercício */
+                    var obj = Object.fromEntries(array)
+                    
+                    console.log(obj) /* Caso queira verificar a exibição do objeto no console, de acordo como o exercício pediu. */
+                    
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(obj);
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

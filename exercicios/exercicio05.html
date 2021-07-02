@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 05</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 05">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues() {
+           var array = document.getElementById('entrada1').value; /* Array inserido pelo usuário */
+           var retirar = document.getElementById('entrada2').value; /* Variável que guardará os elementos à serem retirados */
+
+           /* A função 'split' separa os elementos de entrada utilizando 
+            como parâmetro separador a vírgula (","); */
+           array = array.split(",");
+           retirar = retirar.split(",");
+            
+           /* Chamando função responsável por retirar os itens do array */;
+           retirarItensArray(array, retirar);
+        }
+
+        /* Função que recebe como parâmetro um array e os itens que devem ser retirados */
+        function retirarItensArray(array, retirar) {
+            for(var i = 0; i < retirar.length; i++) { /* 'For' que roda os elementos que serão retirados */
+                for(var j = 0; j < array.length; j++){ /* 'For' que roda o array */
+                    if(retirar[i] == array[j]){ /* 'if' que compara se o elemento a ser retirado é igual ao presente elemento do array */
+                        array.splice(j, 1); /* O método 'splice' é responsável por retirar um item do array, 
+                        de acordo com o seu index ('j') e quantidade de remoções */
+                    }
+                }
+            }
+        
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden')
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(array);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 05</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que retorne um array, sem os itens passados por
+            parâmetro depois do array de entrada.</p>
+        <p>Entrada do método ([5,4,3,2,5], 5,3), Resultado do método: [4,2]</p>
+
+        <input class="inputStyle" type="text" id="entrada1" name="entrada1" value="5,4,3,2,5" placeholder="Digite o array">
+        <input class="inputStyle" type="text" id="entrada2" name="entrada1" value="5,3" placeholder="Digite os itens que deseja retirar">
+        <button class="buttonExercises" onclick="getValues()">Retirar Itens</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues() {
+                    var array = document.getElementById('entrada1').value; /* Array inserido pelo usuário */
+                    var retirar = document.getElementById('entrada2').value; /* Variável que guardará os elementos à serem retirados */
+         
+                    /* A função 'split' separa os elementos de entrada utilizando 
+                     como parâmetro separador a vírgula (","); */
+                    array = array.split(",");
+                    retirar = retirar.split(",");
+                     
+                    /* Chamando função responsável por retirar os itens do array */;
+                    retirarItensArray(array, retirar);
+                 }
+         
+                 /* Função que recebe como parâmetro um array e os itens que devem ser retirados */
+                 function retirarItensArray(array, retirar) {
+                     for(var i = 0; i < retirar.length; i++) { /* 'For' que roda os elementos que serão retirados */
+                         for(var j = 0; j < array.length; j++){ /* 'For' que roda o array */
+                             if(retirar[i] == array[j]){ /* 'if' que compara se o elemento a ser retirado é igual ao presente elemento do array */
+                                 array.splice(j, 1); /* O método 'splice' é responsável por retirar um item do array, 
+                                 de acordo com o seu index ('j') e quantidade de remoções */
+                             }
+                         }
+                     }
+                 
+                     /* Enviando o resultado para a página HTML na div com id="result" */
+                     document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(array);
+                 }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

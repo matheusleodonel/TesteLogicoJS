@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 02</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 02">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues(){
+            /* Função que pega o array  digitado pelo usuário */
+            var array = document.getElementById('entrada').value;
+            
+            /* A função 'split' separa os elementos de entrada utilizando 
+            como parâmetro separador a vírgula (","); */
+            array = array.split(",");
+
+            inverterArray(array);
+        }
+
+        function inverterArray(array){
+            /* Função responsável por inverter o array recebido */
+            var arrayInvertido = []; /* Array que receberá o array de entrada invertido */
+            var j = 0; /* contador auxiliar necessário para inverter os índices do array recebido */
+
+            /* "For" que se inicia no último elemento do array 
+            recebido (i = array.length-1) e corre até o primeiro (i=0) */
+            for(var i=array.length - 1; i >= 0; i--){ 
+                arrayInvertido[j] = array[i]; 
+                j++;
+            }
+            
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden')
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(arrayInvertido);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 02</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que inverta um array, não utilize métodos nativos do array.</p>
+        <p>Entrada do método ([1,2,3,4]), Resultado do método: [4,3,2,1]</p>
+
+        <input class="inputStyle" type="text" id="entrada" name="entrada" value="1,2,3,4" placeholder="Digite o array">
+        <button class="buttonExercises" onclick="getValues()">Inverter Array</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues(){
+                    /* Função que pega o array  digitado pelo usuário */
+                    var array = document.getElementById('entrada').value;
+                    
+                    /* A função 'split' separa os elementos de entrada utilizando 
+                    como parâmetro separador a vírgula (","); */
+                    array = array.split(",");
+        
+                    inverterArray(array);
+                }
+        
+                function inverterArray(array){
+                    /* Função responsável por inverter o array recebido */
+                    var arrayInvertido = []; /* Array que receberá o array de entrada invertido */
+                    var j = 0; /* contador auxiliar necessário para inverter os índices do array recebido */
+        
+                    /* "For" que se inicia no último elemento do array 
+                    recebido (i = array.length-1) e corre até o primeiro (i=0) */
+                    for(var i=array.length - 1; i >= 0; i--){ 
+                        arrayInvertido[j] = array[i]; 
+                        j++;
+                    }
+   
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(arrayInvertido);
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

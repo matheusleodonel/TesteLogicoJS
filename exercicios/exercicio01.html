@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 01</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 01">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues() {
+            /* Função que pega os valores digitados pelo usuário */
+            var x = document.getElementById('x').value;
+            var y = document.getElementById('y').value;
+
+            criarArray(x, y);
+        }
+
+        function criarArray(x, y) {
+            /* Função responsável por criar um Array de acordo com os valores digitados */
+            var novoArray = [];
+
+            for (var i = 0; i < x; i++) {
+                /* Adicionando o valor 'y' ao array 'x' vezes */
+                novoArray.push(y);
+            }
+
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden')
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(novoArray);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 01</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que crie um novo array baseado nos valores passados.</p>
+        <p>Entradas do método (3,a), Resultado do método: ['a', 'a', 'a']</p>
+
+        <input class="inputStyle" type="text" id="x" name="x" value="3" placeholder="Primeiro Valor">
+        <input class="inputStyle" type="text" id="y" name="y" value="a" placeholder="Segundo Valor">
+        <button class="buttonExercises" onclick="getValues()">Criar novo array</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues() {
+                /* Função que pega os valores digitados pelo usuário */
+                var x = document.getElementById('x').value;
+                var y = document.getElementById('y').value;
+
+                criarArray(x, y);
+                }
+
+                function criarArray(x, y) { 
+                    /* Função responsável por criar um Array de acordo com os valores digitados */
+                    var novoArray = [];
+
+                    for (var i = 0; i < x; i++) { 
+                        /* Adicionando o valor 'y' ao array 'x' vezes */ 
+                        novoArray.push(y); 
+                    } 
+                   /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML='Resultado: ' + JSON.stringify(novoArray); 
+                } 
+            </div>
+        </div>
+            <div class="home">
+                <a href="../index.html">Voltar</a>
+            </div>
+        </div>
+</body>
+
+</html>

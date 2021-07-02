@@ -1,0 +1,130 @@
+h1 {
+    font-family: "Share Tech Mono", monospace;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+body {
+    background-color: #010409;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #f0f6fc;
+}
+
+ol {
+    width: 50%;
+    margin: auto;
+    background-color: #2f2f30;
+    padding: 2em 4em 2em 5em;
+    border: 2px solid #ccc;
+    border-radius: .3em;
+    counter-reset: list-counter;
+    /* Inicializando o contador */
+    list-style: none;
+    /* Retirando o contador padrão para incrementar um personalizado */
+}
+
+ol>li {
+    font: 500 15px "Share Tech Mono", monospace;
+    background-color: #010409;
+    border-radius: .3em;
+    margin: 2em 0em;
+    padding: 1em 2em;
+    line-height: 1em;
+    position: relative;
+    cursor: pointer;
+}
+
+ol>li:first-child, ol>li:last-child {
+    margin: 0;
+}
+
+ol>li::before {
+    /* Personalizando o contador */
+    content: counter(list-counter);
+    counter-increment: list-counter;
+    /* Incrementando o contador de 1 em 1 */
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-right: 10em;
+    left: -1.5em;
+    bottom: 45%;
+    position: absolute;
+}
+
+.utteranceStyle {
+    text-align: center;
+}
+
+.inputStyle {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.buttonExercises {
+    width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.buttonExercises:hover {
+    background-color: #45a049;
+    font-weight: bold;
+}
+
+.code {
+    transition: 1s;
+}
+
+.code>h1 {
+    padding: 20px;
+}
+
+.code>.styleCode {
+    text-align: left;
+    background-color: #2f2f30;
+    width: 50%;
+    margin-left: 25%;
+    line-height: 25px;
+    white-space: pre-line;
+    /* Quebrar linha */
+    padding: 10px 0px 30px 40px;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+.home, .git {
+    padding: 2em;
+}
+
+.git {
+    text-align: center;
+}
+
+a:visited, a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #45a049;
+}

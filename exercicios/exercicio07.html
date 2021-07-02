@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 07</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 07">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues() {
+            var array1 = document.getElementById('entrada1').value;
+            var array2 = document.getElementById('entrada2').value;
+
+            /* A função 'split' separa os elementos de entrada utilizando 
+            como parâmetro separador a vírgula (","); */
+            array1 = array1.split(",");
+            array2 = array2.split(",");
+
+            var resultado = compararArrays(array1, array2);
+            
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden');
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(resultado);
+        }
+
+        function compararArrays(array1, array2) {
+            /* Se os dois arrays tiverem tamanhos diferentes, logicamente já são diferentes */
+            if (array1.length !== array2.length) return false; 
+            for (var i = 0; i < array1.length; i++) {
+                /* Se algum elemento não for o mesmo em ambos os arrays, a função também retorna false */
+                if (array1[i] !== array2[i]) { 
+                    return false;
+                }
+            }
+            /* Se chegarmos à esse ponto do código, significa ambos os arrays são iguais */
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 07</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que compare a igualdade de dois arrays e retorne um valor booleano.</p>
+        <p>Entrada do método ([1,2,3,4],[1,2,3,4]), Resultado do método: true</p>
+
+        <input class="inputStyle" type="text" id="entrada1" name="entrada1" value="1,2,3,4"
+            placeholder="Digite primeiro o array">
+        <input class="inputStyle" type="text" id="entrada2" name="entrada2" value="1,2,3,4"
+            placeholder="Digite segundo o array">
+        <button class="buttonExercises" onclick="getValues()">Comparar Arrays</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues() {
+                    var array1 = document.getElementById('entrada1').value;
+                    var array2 = document.getElementById('entrada2').value;
+        
+                    /* A função 'split' separa os elementos de entrada utilizando 
+                    como parâmetro separador a vírgula (","); */
+                    array1 = array1.split(",");
+                    array2 = array2.split(",");
+        
+                    var resultado = compararArrays(array1, array2);
+                    
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(resultado);
+                }
+        
+                function compararArrays(array1, array2) {
+                    /* Se os dois arrays tiverem tamanhos diferentes, logicamente já são diferentes */
+                    if (array1.length !== array2.length) return false; 
+                    for (var i = 0; i < array1.length; i++) {
+                        /* Se algum elemento não for o mesmo em ambos os arrays, a função também retorna false */
+                        if (array1[i] !== array2[i]) { 
+                            return false;
+                        }
+                    }
+                    /* Se chegarmos à esse ponto do código, significa ambos os arrays são iguais */
+                    return true;
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

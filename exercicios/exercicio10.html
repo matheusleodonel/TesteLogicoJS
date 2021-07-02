@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 10</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 10">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues() {
+            /* Obter valores digitados com o método 'Array.from' */
+            var array1 = document.getElementById('entrada1').value;
+
+            /* Separando o array usando as vígulas como referência */
+            array1 = array1.split(",");
+            
+            /* Convertendo elementos do array de string para inteiro para comparação mais precisa */
+            array1.map(function (elemento, i) {
+                array1[i] = parseInt(elemento)
+            })
+
+            /* Realizando o mesmo processo com o segundo array */
+            var array2 = document.getElementById('entrada2').value;
+
+            array2 = array2.split(",");
+
+            array1.map(function (elemento, i) {
+                array1[i] = parseInt(elemento)
+            })
+
+            resultado = elementosEmComum(array1, array2);
+
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden');
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(resultado);
+
+        }
+
+        function elementosEmComum(array1, array2) {
+            var emComum = []; /* Array que vai guardar os elementos em comum entre os dois arrays */
+            var aux = 0; /* Variável auxiliar que tralhará como índice do vetor de elementos em comum */
+
+            for (var i = 0; i < array1.length; i++) {
+                for (var j = 0; j < array2.length; j++) {
+                    if (array1[i] == array2[j]) {
+                        emComum[aux] = array1[i];
+                        aux++;
+                    }
+                }
+            }
+    
+            emComum = [... new Set(emComum)]; /*Removendo possíveis duplicatas do array */
+
+            return emComum;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 10</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que encontre os valores comuns entre dois arrays.</p>
+        <p>Entrada do método ([6, 8], [8, 9]), Resultado do método: [8]</p>
+
+        <input class="inputStyle" type="text" id="entrada1" name="entrada1" value="6, 8"
+            placeholder="Digite o primeiro array">
+        <input class="inputStyle" type="text" id="entrada2" name="entrada2" value="8, 9"
+            placeholder="Digite o segundo array">
+        <button class="buttonExercises" onclick="getValues()">Executar método</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues() {
+                    /* Obter valores digitados com o método 'Array.from' */
+                    var array1 = document.getElementById('entrada1').value;
+        
+                    /* Separando o array usando as vígulas como referência */
+                    array1 = array1.split(",");
+                    
+                    /* Convertendo elementos do array de string para inteiro para comparação mais precisa */
+                    array1.map(function (elemento, i) {
+                        array1[i] = parseInt(elemento)
+                    })
+        
+                    /* Realizando o mesmo processo com o segundo array */
+                    var array2 = document.getElementById('entrada2').value;
+        
+                    array2 = array2.split(",");
+        
+                    array1.map(function (elemento, i) {
+                        array1[i] = parseInt(elemento)
+                    })
+        
+                    resultado = elementosEmComum(array1, array2);
+        
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(resultado);
+        
+                }
+        
+                function elementosEmComum(array1, array2) {
+                    var emComum = []; /* Array que vai guardar os elementos em comum entre os dois arrays */
+                    var aux = 0; /* Variável auxiliar que tralhará como índice do vetor de elementos em comum */
+        
+                    for (var i = 0; i < array1.length; i++) {
+                        for (var j = 0; j < array2.length; j++) {
+                            if (array1[i] == array2[j]) {
+                                emComum[aux] = array1[i];
+                                aux++;
+                            }
+                        }
+                    }
+            
+                    emComum = [... new Set(emComum)]; /*Removendo possíveis duplicatas do array */
+        
+                    return emComum;
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

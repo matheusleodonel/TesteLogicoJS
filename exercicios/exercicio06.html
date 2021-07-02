@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 06</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 06">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function getValues() {
+            var array = document.getElementById('entrada').value;
+            
+            /* A função 'split' separa os elementos de entrada utilizando 
+            como parâmetro separador a vírgula (","); */
+            array = array.split(",");
+
+            retirarDuplicata(array);
+        }
+
+        /* Função responsável por retirar valores duplicados de um array através do método 'Set' */
+        function retirarDuplicata(array) {
+            var aux = new Set(array); /* O método 'Set' permite apenas que elemntos únicos sejam inseridos no array. */
+
+            novoArray = [...aux]; /* A variável 'novoArray' recebe todos os elementos do array 'aux' através das 'spreads' (...) */
+
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden')
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(novoArray);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 06</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que retorne um array, sem valores duplicados.</p>
+        <p>Entrada do método ([1,2,3,3,2,4,5,4,7,3]), Resultado do método: [1,2,3,4,5,7]</p>
+
+        <input class="inputStyle" type="text" id="entrada" name="entrada" value="1,2,3,3,2,4,5,4,7,3" placeholder="Digite o array">
+        <button class="buttonExercises" onclick="getValues()">Retirar valores duplicados</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function getValues() {
+                    var array = document.getElementById('entrada').value;
+                    
+                    /* A função 'split' separa os elementos de entrada utilizando 
+                    como parâmetro separador a vírgula (","); */
+                    array = array.split(",");
+        
+                    retirarDuplicata(array);
+                }
+        
+                /* Função responsável por retirar valores duplicados de um array através do método 'Set' */
+                function retirarDuplicata(array) {
+                    var aux = new Set(array); /* O método 'Set' permite apenas que elemntos únicos sejam inseridos no array. */
+        
+                    novoArray = [...aux]; /* A variável 'novoArray' recebe todos os elementos do array 'aux' através das 'spreads' (...) */
+                    
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(novoArray);
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>

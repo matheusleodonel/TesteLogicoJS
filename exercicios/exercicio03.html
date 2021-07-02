@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exercício 03</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matheus Leodonel">
+    <meta name="description" content="Testes do Exercício 03">
+    <link href="../index.css" rel="stylesheet">
+
+    <script>
+        function filtrarArray() {
+            var array = [1, 2, '', undefined]; /* Array teste */
+
+            /* Chamando o método 'filter' para filtrar o array apenas com o que for desejado.
+            O array apenas com os elementos filtrados será armazenado no novo array 'arrayLimpo'*/
+            var arrayLimpo = array.filter(testeElemento);
+
+            /* Depois de testar o método, o usuário poderá ver o código fonte. */
+            document.getElementById('code').classList.remove('hidden')
+            /* Enviando o resultado para a página HTML na div com id="result" */
+            document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(arrayLimpo);
+        }
+        
+        /* Função responsável por testar cada elemento do array e verificar se ele deve 
+        permanecer no array (retornando true) ou não (retornando false)*/
+        function testeElemento(elemento) {
+            /* Se o elemento do array existir (ou seja, não for false, undefined, strings vazias,
+            zero ou null), ele continuará no array*/
+            if (elemento) {
+                return true;
+            }
+            /* Caso contrário, o elemento não fará parte do array limpo.*/
+            else {
+                console.log("Não passou: ", elemento, " Tipo: ", typeof (elemento));
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Exercício 03</h1>
+    </div>
+    <div class="utteranceStyle">
+        <p>Implemente um método que limpe os itens desnecessários
+            de um array (false, undefined, strings vazias, zero, null).</p>
+        <p>Entrada do método ([1,2,'', undefined]), Resultado do método: [1,2]</p>
+
+        <button class="buttonExercises" onclick="filtrarArray()">Executar método</button>
+
+        <div id="result">
+        </div>
+
+        <div id="code" class="code hidden">
+            <h1> Código fonte: </h1>
+            <div class="styleCode">
+                function filtrarArray() {
+                    var array = [1, 2, '', undefined]; /* Array teste */
+        
+                    /* Chamando o método 'filter' para filtrar o array apenas com o que for desejado.
+                    O array apenas com os elementos filtrados será armazenado no novo array 'arrayLimpo'*/
+                    var arrayLimpo = array.filter(testeElemento);
+        
+                    /* Enviando o resultado para a página HTML na div com id="result" */
+                    document.getElementById('result').innerHTML = 'Resultado: ' + JSON.stringify(arrayLimpo);
+                }
+                
+                /* Função responsável por testar cada elemento do array e verificar se ele deve 
+                permanecer no array (retornando true) ou não (retornando false)*/
+                function testeElemento(elemento) {
+                    /* Se o elemento do array existir (ou seja, não for false, undefined, strings vazias,
+                    zero ou null), ele continuará no array*/
+                    if (elemento) {
+                        return true;
+                    }
+                    /* Caso contrário, o elemento não fará parte do array limpo.*/
+                    else {
+                        console.log("Não passou: ", elemento, " Tipo: ", typeof (elemento));
+                        return false;
+                    }
+                }
+            </div>
+        </div>
+        <div class="home">
+            <a href="../index.html">Voltar</a>
+        </div>
+    </div>
+</body>
