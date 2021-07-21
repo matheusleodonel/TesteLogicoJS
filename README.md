@@ -2,7 +2,7 @@
 
 Resolução dos testes de raciocínio lógico disponibilizados pelo Programa LabLuby JS.
 
-Para visualizar, clique [aqui](https://matheusleodonel.github.io/TesteLogicoLuby/index.html).
+Para visualizar, clique [aqui](https://matheusleodonel.github.io/TesteLogicoJS/index.html).
 
 Métodos que foram implementados:
 
