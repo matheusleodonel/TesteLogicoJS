@@ -1,6 +1,6 @@
-# Teste Lógico Luby
+# Teste Lógico JS
 
-Resolução dos testes de raciocínio lógico disponibilazados pelo Programa LabLuby JS.
+Resolução dos testes de raciocínio lógico disponibilizados pelo Programa LabLuby JS.
 
 Para visualizar, clique [aqui](https://matheusleodonel.github.io/TesteLogicoLuby/index.html).
 
